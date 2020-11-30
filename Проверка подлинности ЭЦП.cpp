@@ -60,7 +60,7 @@ int sumlambda(int x1, int y1, int x2, int y2, int p)   //поиск лямбды
 	else
 	{
 		int flag = 0;
-		//l*chislo=1 (mod p)
+		                 //i*chislo1=1 (mod p)  обратное по модулю
 		for (int i = 1; i < p; i++)
 		{
 			int temp = (i * chislo2) % p;
@@ -90,14 +90,14 @@ int sumy(int x1, int y1, int x2, int y2, int x3, int p)   //y3 для суммы
 	return ny;
 }
 
-int finalx(int x1, int y1, int x2, int y2, int p)
+int finalx(int x1, int y1, int x2, int y2, int p)         //результат х 
 {
 	int x3;
 	x3 = sumx(x1, y1, x2, y2, p);
 	return x3;
 }
 
-int finaly(int x1, int y1, int x2, int y2, int p)
+int finaly(int x1, int y1, int x2, int y2, int p)             //результат у
 {
 	int x3, y3;
 	x3 = sumx(x1, y1, x2, y2, p);
@@ -110,10 +110,10 @@ int main()
 	setlocale(LC_CTYPE, "Russian");
 	int Gx = 562, Gy = 89, p = 751, q = 13, a = -1, b = 1, h = 2, r = 7, s = 6, Qx = 135, Qy = 669, firstx, firsty, secondx, secondy, dx3, dy3;
 	int check = 0;
-	if ((1 <= r) && (r <= q - 1) && (1 <= s) && (s <= q - 1)) check = 1;
+	if ((1 <= r) && (r <= q - 1) && (1 <= s) && (s <= q - 1)) check = 1;    //проверка значений
 	if (check == 0) cout << "Подпись фальшивая";
 	else {
-		int v;
+		int v;                           //v
 		int flag = 0;
 		for (int i = 1; i < q; i++)
 		{
@@ -123,13 +123,13 @@ int main()
 		}
 		cout << "v=" << v << endl;
 
-		int u1 = (v * h) % q;
+		int u1 = (v * h) % q;         //u1
 		cout << "u1=" << u1 << endl;
 
-		int u2 = (v * r) % q;
+		int u2 = (v * r) % q;         //u2
 		cout << "u2=" << u2 << endl;
 
-		if ((u1 < 1) || (u2 < 1)) cout << "error";
+		if ((u1 < 1) || (u2 < 1)) cout << "error";   
 		else
 		{
 			if (u1 == 1) { firstx = Gx; firsty = Gy; }
